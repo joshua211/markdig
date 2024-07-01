@@ -8,6 +8,7 @@
 *.sln.docstates
 *.nuget.props
 *.nuget.targets
+*/.idea/*
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

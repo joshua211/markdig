@@ -1,5 +1,5 @@
 // Copyright (c) Alexandre Mutel. All rights reserved.
-// This file is licensed under the BSD-Clause 2 license. 
+// This file is licensed under the BSD-Clause 2 license.
 // See the license.txt file in the project root for more information.
 
 using System.Runtime.CompilerServices;
@@ -46,6 +46,7 @@ public static class MarkdownParser
             int roughLineCountEstimate = text.Length / 32;
             roughLineCountEstimate = Math.Max(4, Math.Min(512, roughLineCountEstimate));
             document.LineStartIndexes = new List<int>(roughLineCountEstimate);
+            document.Lines = new List<StringSlice>(roughLineCountEstimate);
         }
 
         var blockProcessor = BlockProcessor.Rent(document, pipeline.BlockParsers, context, pipeline.TrackTrivia);

@@ -1,6 +1,8 @@
 // Copyright (c) Alexandre Mutel. All rights reserved.
-// This file is licensed under the BSD-Clause 2 license. 
+// This file is licensed under the BSD-Clause 2 license.
 // See the license.txt file in the project root for more information.
+
+using Markdig.Helpers;
 
 namespace Markdig.Syntax;
 
@@ -15,6 +17,7 @@ public class MarkdownDocument : ContainerBlock
     /// </summary>
     public MarkdownDocument() : base(null)
     {
+
     }
 
     /// <summary>
@@ -27,4 +30,10 @@ public class MarkdownDocument : ContainerBlock
     /// <para>Available if <see cref="MarkdownPipelineBuilder.PreciseSourceLocation"/> is used, otherwise null</para>
     /// </summary>
     public List<int>? LineStartIndexes { get; set; }
+
+    /// <summary>
+    /// Gets a list of <see cref="StringSlice"/>s representing the lines in the source span
+    /// <para>Available if <see cref="MarkdownPipelineBuilder.PreciseSourceLocation"/> is used, otherwise null</para>
+    /// </summary>
+    public List<StringSlice>? Lines { get; set; }
 }

@@ -109,6 +109,7 @@ public class ListBlockParser : BlockParser
         result = BlockState.None;
         if (block is ListItemBlock listItem)
         {
+            //TODO maybe stop blank lines here asd
             result = TryContinueListItem(processor, listItem);
         }
 
@@ -129,6 +130,7 @@ public class ListBlockParser : BlockParser
         // If > 1 blank line, terminate this list
         if (state.IsBlankLine)
         {
+            return BlockState.Break;
             if (state.CurrentBlock != null && state.CurrentBlock.IsBreakable)
             {
                 if (!(state.NextContinue is ListBlock))

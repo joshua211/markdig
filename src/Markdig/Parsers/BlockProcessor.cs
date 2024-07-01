@@ -490,6 +490,7 @@ public class BlockProcessor
         CurrentLineStartPosition = newLine.Start;
 
         Document.LineStartIndexes?.Add(CurrentLineStartPosition);
+        Document.Lines?.Add(newLine);
 
         ContinueProcessingLine = true;
 
@@ -800,8 +801,13 @@ public class BlockProcessor
                     LinesBefore.Add(line);
                     Line.Start = StartBeforeIndent;
                 }
-                ContinueProcessingLine = false;
-                break;
+
+                /*if (CurrentContainer is ListItemBlock)
+                {
+                    /*ContinueProcessingLine = false;
+                    break;#1#
+                    continue;
+                }*/
             }
 
             // UpdateLastBlockAndContainer the state of CurrentBlock and LastContainer
